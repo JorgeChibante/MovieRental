@@ -16,6 +16,11 @@ namespace MovieRental.Controllers
             _features = features;
         }
 
+        [HttpGet()]
+        public IActionResult GetByCustomerName([FromQuery] string customerName)
+        {
+            return Ok(_features.GetRentalsByCustomerName(customerName));
+        }
 
         [HttpPost]
         public IActionResult Post([FromBody] Rental.Rental rental)
