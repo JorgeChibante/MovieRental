@@ -15,15 +15,15 @@ namespace MovieRental.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] Customer.Customer customer)
+        public async Task<IActionResult> Post([FromBody] Customer.Customer customer)
         {
-            return Ok(_features.Save(customer));
+            return Ok(await _features.Save(customer));
         }
         
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return Ok(_features.GetAll());
+            return Ok(await _features.GetAll());
         }
 
     }
